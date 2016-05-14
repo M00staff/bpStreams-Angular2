@@ -16,7 +16,7 @@ var showsComponent = (function () {
     showsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
-            template: 'stuff'
+            templateUrl: 'shows.view.html'
         }), 
         __metadata('design:paramtypes', [])
     ], showsComponent);

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pick-shows',
-  template: 'stuff'
+  templateUrl: 'shows.view.html'
 })
 
 export class showsComponent {  }
