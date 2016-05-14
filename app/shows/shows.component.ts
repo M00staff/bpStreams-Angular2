@@ -3,7 +3,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'pick-shows',
-  templateUrl: 'shows.view.html'
+  templateUrl: 'app/shows/shows.view.html'
 })
 
-export class showsComponent {  }
+export class showsComponent {
+
+  pickYear = (year, row) => {
+    console.log(year, row);
+ }
+
+}

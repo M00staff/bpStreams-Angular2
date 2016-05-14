@@ -12,11 +12,14 @@ var core_1 = require('@angular/core');
 //import {AppComponent} from '../app.component';
 var showsComponent = (function () {
     function showsComponent() {
+        this.pickYear = function (year, row) {
+            console.log(year, row);
+        };
     }
     showsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
-            templateUrl: 'shows.view.html'
+            templateUrl: 'app/shows/shows.view.html'
         }), 
         __metadata('design:paramtypes', [])
     ], showsComponent);
