@@ -1,7 +1,7 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 
+import {HTTP_BINDINGS} from '@angular/http';
+
 import { AppComponent } from './app.component';
 
-// import { showsComponent } from './shows/shows.component';
-
-bootstrap(AppComponent);
+bootstrap(AppComponent, [HTTP_BINDINGS]);
