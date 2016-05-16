@@ -29,7 +29,8 @@ var showsComponent = (function () {
         core_1.Component({
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.view.html',
-            providers: [http_1.JSONP_PROVIDERS]
+            providers: [http_1.JSONP_PROVIDERS],
+            inputs: ['shows']
         }), 
         __metadata('design:paramtypes', [http_1.Jsonp])
     ], showsComponent);
