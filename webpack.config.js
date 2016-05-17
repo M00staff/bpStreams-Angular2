@@ -22,7 +22,8 @@ const common = {
     module: {
         loaders: [
             { test: /\.css$/, loaders: ['style', 'css'], include: PATHS.css },
-            { test: /\.ts/, loaders: ['ts-loader'], exclude: /node_modules/ }
+            { test: /\.ts/, loaders: ['ts-loader'], exclude: /node_modules/ },
+            { test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: PATHS.node_modules },
         ]
     }
 };
@@ -32,7 +33,7 @@ const common = {
 if(TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
   devServer: {
-    contentBase: __dirname,
+    contentBase: __dirname, //change to/for output
     // Enable history API fallback so HTML5 History API based
     // routing works. This is a good default that will come
     // in handy in more complicated setups.
