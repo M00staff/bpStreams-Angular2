@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Response, JSONP_PROVIDERS, Jsonp } from '@angular/http';
+import { showList } from '../showList/showList.component';
 
 // import { showsService } from './shows.service';
 // import 'rxjs/Rx';
@@ -8,7 +9,8 @@ import { Response, JSONP_PROVIDERS, Jsonp } from '@angular/http';
   selector: 'pick-shows',
   templateUrl: 'app/shows/shows.view.html',
   providers: [JSONP_PROVIDERS],
-  inputs: ['shows']
+  outputs: ['shows'],
+  directives: [showList]
   // ,
   // providers:[showsService]
 })

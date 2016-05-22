@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
+var showList_component_1 = require('../showList/showList.component');
 // import { showsService } from './shows.service';
 // import 'rxjs/Rx';
 var showsComponent = (function () {
@@ -30,7 +31,8 @@ var showsComponent = (function () {
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.view.html',
             providers: [http_1.JSONP_PROVIDERS],
-            inputs: ['shows']
+            outputs: ['shows'],
+            directives: [showList_component_1.showList]
         }), 
         __metadata('design:paramtypes', [http_1.Jsonp])
     ], showsComponent);

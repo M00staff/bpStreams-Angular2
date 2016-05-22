@@ -9,20 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var shows_component_1 = require('./shows/shows.component');
-var AppComponent = (function () {
-    function AppComponent() {
+var showList = (function () {
+    function showList() {
+        this.randomButton = function () {
+            console.log('randomButton clicked');
+        };
     }
-    AppComponent = __decorate([
+    showList = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.view.html',
-            directives: [shows_component_1.showsComponent],
-            inputs: ['shows']
+            selector: 'show-list',
+            templateUrl: 'app/showList/showList.html',
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], showList);
+    return showList;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.showList = showList;
+//# sourceMappingURL=showList.component.js.map
