@@ -17,8 +17,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.view.html',
-            directives: [shows_component_1.showsComponent],
-            inputs: ['shows']
+            directives: [shows_component_1.showsComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

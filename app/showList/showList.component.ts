@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { showsComponent } from '../shows/shows.component';
-
+import { showsComponent } from '../shows/shows.component'
 
 @Component({
   selector: 'show-list',
@@ -10,6 +9,6 @@ import { showsComponent } from '../shows/shows.component';
 
 export class showList {
   randomButton = () => {
-    console.log('randomButton clicked')
+    console.log(shows)
   }
 }

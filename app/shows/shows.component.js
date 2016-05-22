@@ -26,12 +26,16 @@ var showsComponent = (function () {
             });
         };
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], showsComponent.prototype, "shows", void 0);
     showsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.view.html',
             providers: [http_1.JSONP_PROVIDERS],
-            outputs: ['shows'],
+            // inputs: ['shows'],
             directives: [showList_component_1.showList]
         }), 
         __metadata('design:paramtypes', [http_1.Jsonp])
