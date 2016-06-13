@@ -9,6 +9,6 @@ import { showsComponent } from '../shows/shows.component'
 
 export class showList {
   randomButton = () => {
-    console.log(shows)
+    //console.log(shows)
   }
 }

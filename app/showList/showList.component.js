@@ -12,7 +12,7 @@ var core_1 = require('@angular/core');
 var showList = (function () {
     function showList() {
         this.randomButton = function () {
-            console.log(shows);
+            //console.log(shows)
         };
     }
     showList = __decorate([

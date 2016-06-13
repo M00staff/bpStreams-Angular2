@@ -7,7 +7,7 @@ import { showList } from '../showList/showList.component';
 
 @Component({
   selector: 'pick-shows',
-  templateUrl: 'app/shows/shows.view.html',
+  templateUrl: 'app/shows/shows.html',
   providers: [JSONP_PROVIDERS],
   // inputs: ['shows'],
   directives: [showList]

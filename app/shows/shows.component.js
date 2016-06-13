@@ -33,7 +33,7 @@ var showsComponent = (function () {
     showsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
-            templateUrl: 'app/shows/shows.view.html',
+            templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS],
             // inputs: ['shows'],
             directives: [showList_component_1.showList]
