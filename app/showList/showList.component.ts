@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { ShowsComponent } from '../shows/shows.component';
 import { ShowsService } from '../shows.service';
+import { ShowPick } from '../showPick/showPick.component'
 
 @Component({
   selector: 'show-list',
   templateUrl: 'app/showList/showList.html',
-
+  directives: [ShowPick]
 })
 
 
-export class showList {
+export class ShowList {
 //
   constructor(private showsService: ShowsService){}
 
@@ -17,6 +18,6 @@ export class showList {
 
   randomButton = () => {
     this.showList = this.showsService.shows2.response.docs;
-    console.log(this.showsService.shows2)
+    console.log(this.showsService.shows2.response.docs)
   }
 }

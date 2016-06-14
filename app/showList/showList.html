@@ -1,5 +1,7 @@
 
  <button type="button" name="button" (click)="randomButton()"></button>
 
- <div id="allShows" *ngFor="let shows of showList"> {{shows.title}}
+ <div id="allShows" *ngFor="let shows of showList">
+   {{shows.title}}
+   <show-pick></show-pick>
  </div>

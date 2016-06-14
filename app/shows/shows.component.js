@@ -26,7 +26,7 @@ var ShowsComponent = (function () {
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
-            directives: [showList_component_1.showList]
+            directives: [showList_component_1.ShowList]
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);

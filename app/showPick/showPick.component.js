@@ -9,27 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var shows_service_1 = require('../shows.service');
-var showPick_component_1 = require('../showPick/showPick.component');
-var ShowList = (function () {
-    //
-    function ShowList(showsService) {
-        var _this = this;
-        this.showsService = showsService;
-        this.randomButton = function () {
-            _this.showList = _this.showsService.shows2.response.docs;
-            console.log(_this.showsService.shows2.response.docs);
-        };
+var ShowPick = (function () {
+    function ShowPick() {
     }
-    ShowList = __decorate([
+    ShowPick = __decorate([
         core_1.Component({
-            selector: 'show-list',
-            templateUrl: 'app/showList/showList.html',
-            directives: [showPick_component_1.ShowPick]
+            selector: 'show-pick',
+            template: "<h1>Stuff</h1>"
         }), 
-        __metadata('design:paramtypes', [shows_service_1.ShowsService])
-    ], ShowList);
-    return ShowList;
+        __metadata('design:paramtypes', [])
+    ], ShowPick);
+    return ShowPick;
 }());
-exports.ShowList = ShowList;
-//# sourceMappingURL=showList.component.js.map
+exports.ShowPick = ShowPick;
+//# sourceMappingURL=showPick.component.js.map
