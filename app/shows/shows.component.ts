@@ -8,13 +8,11 @@ import { ShowsService } from '../shows.service';
   selector: 'pick-shows',
   templateUrl: 'app/shows/shows.html',
   providers: [JSONP_PROVIDERS, ShowsService],
-  // inputs: ['shows'],
   directives: [showList]
 })
 
-export class showsComponent {
+export class ShowsComponent {
 
-  // constructor(private showsService: showsService) {}
   constructor (private showsService: ShowsService) {}
 
     public shows;

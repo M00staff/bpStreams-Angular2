@@ -13,26 +13,24 @@ var http_1 = require('@angular/http');
 var showList_component_1 = require('../showList/showList.component');
 var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
-var showsComponent = (function () {
-    // constructor(private showsService: showsService) {}
-    function showsComponent(showsService) {
+var ShowsComponent = (function () {
+    function ShowsComponent(showsService) {
         var _this = this;
         this.showsService = showsService;
         this.pickYear = function (year, row) {
             _this.shows = _this.showsService.pickYear2(year, row);
         };
     }
-    showsComponent = __decorate([
+    ShowsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
-            // inputs: ['shows'],
             directives: [showList_component_1.showList]
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
-    ], showsComponent);
-    return showsComponent;
+    ], ShowsComponent);
+    return ShowsComponent;
 }());
-exports.showsComponent = showsComponent;
+exports.ShowsComponent = ShowsComponent;
 //# sourceMappingURL=shows.component.js.map

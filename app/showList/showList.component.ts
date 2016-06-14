@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { showsComponent } from '../shows/shows.component'
+import { ShowsComponent } from '../shows/shows.component';
+import { ShowsService } from '../shows.service';
 
 @Component({
   selector: 'show-list',
@@ -7,8 +8,15 @@ import { showsComponent } from '../shows/shows.component'
 
 })
 
+
 export class showList {
+//
+  constructor(private showsService: ShowsService){}
+
+  public showList
+
   randomButton = () => {
-    //console.log(shows)
+    this.showList = this.showsService.shows2.response.docs;
+    console.log(this.showsService.shows2)
   }
 }

@@ -9,10 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var shows_service_1 = require('../shows.service');
 var showList = (function () {
-    function showList() {
+    //
+    function showList(showsService) {
+        var _this = this;
+        this.showsService = showsService;
         this.randomButton = function () {
-            //console.log(shows)
+            _this.showList = _this.showsService.shows2.response.docs;
+            console.log(_this.showsService.shows2);
         };
     }
     showList = __decorate([
@@ -20,7 +25,7 @@ var showList = (function () {
             selector: 'show-list',
             templateUrl: 'app/showList/showList.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], showList);
     return showList;
 }());

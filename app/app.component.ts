@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { showsComponent } from './shows/shows.component'
+import { ShowsComponent } from './shows/shows.component'
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.view.html',
-  directives: [showsComponent]
+  directives: [ShowsComponent]
 })
 
 export class AppComponent {
