@@ -11,34 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var showList_component_1 = require('../showList/showList.component');
-// import { showsService } from './shows.service';
+var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
 var showsComponent = (function () {
     // constructor(private showsService: showsService) {}
-    function showsComponent(jsonp) {
+    function showsComponent(showsService) {
         var _this = this;
-        this.jsonp = jsonp;
+        this.showsService = showsService;
         this.pickYear = function (year, row) {
-            _this.jsonp.request('https://archive.org/advancedsearch.php?q=BrothersPast,%20year:' + year + '&fl%5B%5D=year&fl%5B%5D=date&fl%5B%5D=identifier,title&sort%5B%5D=&sort%5B%5D=&sort%5B%5D=&rows=' + row + '&page=1&output=json&callback=JSONP_CALLBACK')
-                .subscribe(function (res) {
-                _this.shows = res.json();
-                console.log(_this.shows);
-            });
+            _this.shows = _this.showsService.pickYear2(year, row);
         };
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], showsComponent.prototype, "shows", void 0);
     showsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
-            providers: [http_1.JSONP_PROVIDERS],
+            providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
             // inputs: ['shows'],
             directives: [showList_component_1.showList]
         }), 
-        __metadata('design:paramtypes', [http_1.Jsonp])
+        __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], showsComponent);
     return showsComponent;
 }());
