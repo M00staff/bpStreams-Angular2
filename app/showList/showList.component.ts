@@ -11,7 +11,7 @@ import { ShowPick } from '../showPick/showPick.component'
 
 
 export class ShowList {
-//
+
   constructor(private showsService: ShowsService){}
 
   public showList

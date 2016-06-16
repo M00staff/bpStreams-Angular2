@@ -15,7 +15,7 @@ var ShowPick = (function () {
     ShowPick = __decorate([
         core_1.Component({
             selector: 'show-pick',
-            template: "<h1>Stuff</h1>"
+            template: "\n\n    <span><br />(setlist)</span>\n\n    "
         }), 
         __metadata('design:paramtypes', [])
     ], ShowPick);

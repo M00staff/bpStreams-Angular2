@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var shows_service_1 = require('../shows.service');
 var showPick_component_1 = require('../showPick/showPick.component');
 var ShowList = (function () {
-    //
     function ShowList(showsService) {
         var _this = this;
         this.showsService = showsService;
