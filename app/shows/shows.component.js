@@ -14,24 +14,19 @@ var showList_component_1 = require('../showList/showList.component');
 var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
 var ShowsComponent = (function () {
+    // need this in the constructor to run service
     function ShowsComponent(showsService) {
         var _this = this;
         this.showsService = showsService;
         this.pickYear = function (year, row) {
-            // this.shows =
+            // run service with arguments
             _this.showsService.pickYear2(year, row)
                 .subscribe(function (res) {
+                // changes observable to JSON
                 _this.shows = res.json();
+                // grabs and attaches filtered data correct
                 _this.showList = _this.shows.response.docs;
             });
-            // console.log(this.shows)
-            // .subscribe((res: Response) => {
-            // console.log(res.response.docs)
-            // this.showList = this.showsService.shows3;
-            // })
-            // this.shows = this.showsService.shows2.response.docs;
-            // .subscribe(res => this.showList = res);
-            // console.log(this.showList)
         };
     }
     ShowsComponent = __decorate([
