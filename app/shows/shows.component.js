@@ -18,14 +18,36 @@ var ShowsComponent = (function () {
     function ShowsComponent(showsService) {
         var _this = this;
         this.showsService = showsService;
+        // public setList;
         this.pickYear = function (year, row) {
             // run service with arguments
             _this.showsService.pickYear2(year, row)
                 .subscribe(function (res) {
-                // changes observable to JSON
+                // subscribe also allows us to change observable to JSON
                 _this.shows = res.json();
                 // grabs and attaches filtered data correct
                 _this.showList = _this.shows.response.docs;
+            });
+        };
+        this.pickShow = function (id) {
+            _this.showsService.pickShow2(id)
+                .subscribe(function (res) {
+                _this.show = res.json();
+                _this.showFiles = _this.show;
+                console.log(_this.show);
+                var setList = [];
+                _this.showFiles.forEach(function (val) {
+                    var fileName = val.files.name;
+                    var songName = val.files.title;
+                    var baseUrl = val.d1;
+                    var dir = val.dir;
+                    console.log(val);
+                    var ext = fileName.substr(fileName.lastIndexOf('.') + 1); //check file type - looks at everything after '.'
+                    if ((ext === 'ogg' || ext === 'mp3') && songName != undefined) {
+                        setList.push({ songTitle: songName, songFile: fileName, deeOne: baseUrl, directory: dir, songSource1: 'http://' + baseUrl + dir + '/' + fileName });
+                    }
+                });
+                console.log(setList);
             });
         };
     }
