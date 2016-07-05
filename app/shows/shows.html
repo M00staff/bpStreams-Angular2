@@ -17,6 +17,10 @@
     <button (click)="pickYear(2013, 1)">2013</button>
   </div>
 
-  <show-list></show-list>
+  <div id="allShows" *ngFor="let show of showList">
+    {{show.title}}
+  </div>
+
+  <!-- <show-list [showList2]='shows'></show-list> -->
 
 </div>

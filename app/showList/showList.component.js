@@ -16,6 +16,7 @@ var ShowList = (function () {
         var _this = this;
         this.showsService = showsService;
         this.randomButton = function () {
+            // console.log(this.showList + ' did it work?')
             _this.showList = _this.showsService.shows2.response.docs;
             console.log(_this.showsService.shows2.response.docs);
         };

@@ -16,9 +16,23 @@ export class ShowsComponent {
   constructor (private showsService: ShowsService) {}
 
     public shows;
+    public showList;
 
     pickYear = (year, row) => {
-      this.shows = this.showsService.pickYear2(year, row)
+      // this.shows =
+      this.showsService.pickYear2(year, row)
+      .subscribe((res: Response) => {
+        this.shows = res.json();
+        this.showList = this.shows.response.docs
+      })
+      // console.log(this.shows)
+      // .subscribe((res: Response) => {
+        // console.log(res.response.docs)
+      // this.showList = this.showsService.shows3;
+    // })
+      // this.shows = this.showsService.shows2.response.docs;
+      // .subscribe(res => this.showList = res);
+      // console.log(this.showList)
    }
 
 

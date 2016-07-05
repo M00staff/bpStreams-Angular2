@@ -18,7 +18,20 @@ var ShowsComponent = (function () {
         var _this = this;
         this.showsService = showsService;
         this.pickYear = function (year, row) {
-            _this.shows = _this.showsService.pickYear2(year, row);
+            // this.shows =
+            _this.showsService.pickYear2(year, row)
+                .subscribe(function (res) {
+                _this.shows = res.json();
+                _this.showList = _this.shows.response.docs;
+            });
+            // console.log(this.shows)
+            // .subscribe((res: Response) => {
+            // console.log(res.response.docs)
+            // this.showList = this.showsService.shows3;
+            // })
+            // this.shows = this.showsService.shows2.response.docs;
+            // .subscribe(res => this.showList = res);
+            // console.log(this.showList)
         };
     }
     ShowsComponent = __decorate([
