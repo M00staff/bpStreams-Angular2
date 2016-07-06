@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Response, JSONP_PROVIDERS  } from '@angular/http';
-import { ShowList } from '../showList/showList.component';
+// import { ShowList } from '../showList/showList.component';
 import { ShowsService } from '../shows.service';
 // import 'rxjs/Rx';
 
@@ -8,7 +8,7 @@ import { ShowsService } from '../shows.service';
   selector: 'pick-shows',
   templateUrl: 'app/shows/shows.html',
   providers: [JSONP_PROVIDERS, ShowsService],
-  directives: [ShowList]
+  // directives: [ShowList]
 })
 
 export class ShowsComponent {
@@ -21,6 +21,8 @@ export class ShowsComponent {
   public show;
   public showFiles;
   public setList;
+  public songSource;
+
 
   pickYear = (year, row) => {
     // run service with arguments
@@ -34,6 +36,7 @@ export class ShowsComponent {
       // console.log(this.showList)
     })
   }
+
 
   pickShow = ( id ) => {
     this.showsService.pickShow2( id )
@@ -72,10 +75,24 @@ export class ShowsComponent {
 
           }
       })
+      console.log(setList)
       // bind top public setlist with one just made
       this.setList = setList;
-      // console.log(setList)
       // return this.setList
     })
   }
+
+
+  pickSong = ( title, file, d1, dir, songList, index ) => {
+    const songSrc = {title: title, source: 'http://' + d1 + dir + '/' + file};
+    this.songSource = songSrc;
+    const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
+    inputElement.value = songSrc.title;
+
+    const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
+
+    // inputElement2.attr('src', songList[index].songSource1)
+  }
+
+
 }

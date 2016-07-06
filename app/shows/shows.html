@@ -17,18 +17,26 @@
     <button (click)="pickYear(2013, 1)">2013</button>
   </div>
 
-  <div (click)="pickShow( show.identifier )" id="allShows" *ngFor="let show of showList">
+
+  <div (click)="pickShow( show.identifier )" class="allShows" *ngFor="let show of showList">
 
     {{show.title}}
 
       <div class="allSongs" *ngFor="let set of setList">
 
-        <div>{{ set.songTitle }}</div>
+        <div (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, track )">{{ set.songTitle }}</div>
 
       </div>
 
   </div>
 
+
+
   <!-- <show-list [showList2]='shows'></show-list> -->
 
 </div>
+
+<!-- <footer>
+  <span class="player-song-title">{{ songSource.title }}</span>
+  <audio autoplay controls class="player" [src]="songSource.source"></audio>
+</footer> -->

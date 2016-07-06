@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var showList_component_1 = require('../showList/showList.component');
+// import { ShowList } from '../showList/showList.component';
 var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
 var ShowsComponent = (function () {
@@ -61,11 +61,19 @@ var ShowsComponent = (function () {
                         });
                     }
                 });
+                console.log(setList);
                 // bind top public setlist with one just made
                 _this.setList = setList;
-                // console.log(setList)
                 // return this.setList
             });
+        };
+        this.pickSong = function (title, file, d1, dir, songList, index) {
+            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
+            _this.songSource = songSrc;
+            var inputElement = document.getElementsByClassName('player-song-title');
+            inputElement.value = songSrc.title;
+            var inputElement2 = document.getElementsByClassName('player');
+            // inputElement2.attr('src', songList[index].songSource1)
         };
     }
     ShowsComponent = __decorate([
@@ -73,7 +81,6 @@ var ShowsComponent = (function () {
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
-            directives: [showList_component_1.ShowList]
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);

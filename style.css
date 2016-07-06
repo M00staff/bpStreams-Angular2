@@ -56,7 +56,7 @@ ul {
   list-style-type: none;
 }
 
-#allShows {
+.allShows {
   border: solid 2px grey;
   background-color: aliceblue;
   display: block;
@@ -68,19 +68,19 @@ ul {
   font-family: "Arial Black", Gadget, sans-serif;
 }
 
-#allShows:hover{
+.allShows:hover{
   background-color: #CBDAE6;
   transition: 0.5s ease-out;
 }
 
-#allSongs {
+.allSongs {
   transition: 0.5s ease-out;
   border-radius: 20px;
   font-family: "Comic Sans MS", cursive, sans-serif;
 
 }
 
-#allSongs:hover {
+.allSongs:hover {
   display: block;
   background-color: aliceblue;
   transition: 0.5s ease-out;
