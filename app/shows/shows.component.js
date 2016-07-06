@@ -26,7 +26,7 @@ var ShowsComponent = (function () {
                 _this.shows = res.json();
                 // grabs and attaches filtered data correct
                 _this.showList = _this.shows.response.docs;
-                console.log(_this.showList);
+                // console.log(this.showList)
             });
         };
         this.pickShow = function (id) {
@@ -61,8 +61,10 @@ var ShowsComponent = (function () {
                         });
                     }
                 });
-                console.log(setList);
-                return setList;
+                // bind top public setlist with one just made
+                _this.setList = setList;
+                // console.log(setList)
+                // return this.setList
             });
         };
     }

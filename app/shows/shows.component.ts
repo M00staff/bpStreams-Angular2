@@ -14,7 +14,7 @@ import { ShowsService } from '../shows.service';
 export class ShowsComponent {
 
   // need this in the constructor to run service
-  constructor (private showsService: ShowsService) {}
+  constructor (private showsService: ShowsService) { }
 
   public shows;
   public showList;
@@ -31,7 +31,7 @@ export class ShowsComponent {
       this.shows = res.json();
       // grabs and attaches filtered data correct
       this.showList = this.shows.response.docs
-      console.log(this.showList)
+      // console.log(this.showList)
     })
   }
 
@@ -43,7 +43,7 @@ export class ShowsComponent {
       this.showFiles = this.show.files;
 
       // baseUrl and dir are a level above name and title in the ng2 version of object
-      const setList = [];
+      let setList = [];
       const baseUrl = this.show.d1
       const dir = this.show.dir
 
@@ -70,10 +70,12 @@ export class ShowsComponent {
                return 0;
              })
 
-           }
+          }
       })
-      console.log(setList)
-      return setList;
+      // bind top public setlist with one just made
+      this.setList = setList;
+      // console.log(setList)
+      // return this.setList
     })
   }
 }

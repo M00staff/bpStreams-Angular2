@@ -18,10 +18,15 @@
   </div>
 
   <div (click)="pickShow( show.identifier )" id="allShows" *ngFor="let show of showList">
+
     {{show.title}}
-      <!-- <div class="allSongs" *ngFor="let set in setList">
-        {{ set }}
-      </div> -->
+
+      <div class="allSongs" *ngFor="let set of setList">
+
+        <div>{{ set.songTitle }}</div>
+
+      </div>
+
   </div>
 
   <!-- <show-list [showList2]='shows'></show-list> -->
