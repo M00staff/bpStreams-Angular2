@@ -33,14 +33,14 @@ var ShowsComponent = (function () {
             _this.showsService.pickShow2(id)
                 .subscribe(function (res) {
                 _this.show = res.json();
-                _this.showFiles = _this.show;
+                _this.showFiles = _this.show.files;
                 console.log(_this.show);
                 var setList = [];
+                var baseUrl = _this.show.d1;
+                var dir = _this.show.dir;
                 _this.showFiles.forEach(function (val) {
-                    var fileName = val.files.name;
-                    var songName = val.files.title;
-                    var baseUrl = val.d1;
-                    var dir = val.dir;
+                    var fileName = val.name;
+                    var songName = val.title;
                     console.log(val);
                     var ext = fileName.substr(fileName.lastIndexOf('.') + 1); //check file type - looks at everything after '.'
                     if ((ext === 'ogg' || ext === 'mp3') && songName != undefined) {

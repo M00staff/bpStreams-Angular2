@@ -38,16 +38,17 @@ export class ShowsComponent {
     this.showsService.pickShow2( id )
     .subscribe((res: Response) => {
       this.show = res.json();
-      this.showFiles = this.show;
+      this.showFiles = this.show.files;
 console.log(this.show)
 
       const setList = []
+      const baseUrl = this.show.d1
+      const dir = this.show.dir
 
       this.showFiles.forEach(function(val) {
-        const fileName = val.files.name;
-        const songName = val.files.title;
-        const baseUrl = val.d1;
-        const dir = val.dir;
+        const fileName = val.name;
+        const songName = val.title;
+
 console.log(val)
         const ext = fileName.substr(fileName.lastIndexOf('.') + 1);   //check file type - looks at everything after '.'
           if ((ext === 'ogg' || ext === 'mp3') && songName != undefined) {
