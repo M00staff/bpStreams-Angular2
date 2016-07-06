@@ -13,12 +13,11 @@ var shows_service_1 = require('../shows.service');
 var showPick_component_1 = require('../showPick/showPick.component');
 var ShowList = (function () {
     function ShowList(showsService) {
-        var _this = this;
         this.showsService = showsService;
         this.randomButton = function () {
             // console.log(this.showList + ' did it work?')
-            _this.showList = _this.showsService.shows2.response.docs;
-            console.log(_this.showsService.shows2.response.docs);
+            // this.showList = this.showsService.shows2.response.docs;
+            // console.log(this.showsService.shows2.response.docs)
         };
     }
     ShowList = __decorate([

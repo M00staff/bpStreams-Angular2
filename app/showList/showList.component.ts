@@ -20,7 +20,7 @@ export class ShowList {
 
   randomButton = () => {
     // console.log(this.showList + ' did it work?')
-    this.showList = this.showsService.shows2.response.docs;
-    console.log(this.showsService.shows2.response.docs)
+    // this.showList = this.showsService.shows2.response.docs;
+    // console.log(this.showsService.shows2.response.docs)
   }
 }
