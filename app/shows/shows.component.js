@@ -18,7 +18,6 @@ var ShowsComponent = (function () {
     function ShowsComponent(showsService) {
         var _this = this;
         this.showsService = showsService;
-        // public setList;
         this.pickYear = function (year, row) {
             // run service with arguments
             _this.showsService.pickYear2(year, row)
@@ -27,6 +26,7 @@ var ShowsComponent = (function () {
                 _this.shows = res.json();
                 // grabs and attaches filtered data correct
                 _this.showList = _this.shows.response.docs;
+                console.log(_this.showList);
             });
         };
         this.pickShow = function (id) {

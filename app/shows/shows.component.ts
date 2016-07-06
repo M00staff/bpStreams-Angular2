@@ -20,7 +20,7 @@ export class ShowsComponent {
   public showList;
   public show;
   public showFiles;
-  // public setList;
+  public setList;
 
   pickYear = (year, row) => {
     // run service with arguments
@@ -31,6 +31,7 @@ export class ShowsComponent {
       this.shows = res.json();
       // grabs and attaches filtered data correct
       this.showList = this.shows.response.docs
+      console.log(this.showList)
     })
   }
 
@@ -42,7 +43,7 @@ export class ShowsComponent {
       this.showFiles = this.show.files;
 
       // baseUrl and dir are a level above name and title in the ng2 version of object
-      const setList = []
+      const setList = [];
       const baseUrl = this.show.d1
       const dir = this.show.dir
 
