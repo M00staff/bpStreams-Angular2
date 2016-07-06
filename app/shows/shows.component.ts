@@ -38,24 +38,41 @@ export class ShowsComponent {
     this.showsService.pickShow2( id )
     .subscribe((res: Response) => {
       this.show = res.json();
+      // console.log(this.show)
       this.showFiles = this.show.files;
-console.log(this.show)
 
+      // baseUrl and dir are a level above name and title in the ng2 version of object
       const setList = []
       const baseUrl = this.show.d1
       const dir = this.show.dir
 
-      this.showFiles.forEach(function(val) {
+      // iterate through the array of objects and grab the file names and song titles
+      this.showFiles.forEach((val) => {
+        // console.log(val)
         const fileName = val.name;
         const songName = val.title;
+        const track = val.track;
 
-console.log(val)
-        const ext = fileName.substr(fileName.lastIndexOf('.') + 1);   //check file type - looks at everything after '.'
+        // check file type - looks at everything after '.'
+        const ext = fileName.substr(fileName.lastIndexOf('.') + 1);
           if ((ext === 'ogg' || ext === 'mp3') && songName != undefined) {
-             setList.push({songTitle: songName, songFile: fileName, deeOne: baseUrl, directory: dir, songSource1: 'http://' + baseUrl + dir + '/' + fileName});
+             setList.push({songTitle: songName, track: track, songFile: fileName, deeOne: baseUrl, directory: dir, songSource1: 'http://' + baseUrl + dir + '/' + fileName});
+
+             // sort playlist
+             setList.sort((a, b) => {
+               if (a.track > b.track) {
+                 return 1;
+               }
+               if (a.track < b.track) {
+                 return -1;
+               }
+               return 0;
+             })
+
            }
       })
-console.log(setList)
+      console.log(setList)
+      return setList;
     })
   }
 }

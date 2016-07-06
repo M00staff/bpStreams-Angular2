@@ -33,21 +33,36 @@ var ShowsComponent = (function () {
             _this.showsService.pickShow2(id)
                 .subscribe(function (res) {
                 _this.show = res.json();
+                // console.log(this.show)
                 _this.showFiles = _this.show.files;
-                console.log(_this.show);
+                // baseUrl and dir are a level above name and title in the ng2 version of object
                 var setList = [];
                 var baseUrl = _this.show.d1;
                 var dir = _this.show.dir;
+                // iterate through the array of objects and grab the file names and song titles
                 _this.showFiles.forEach(function (val) {
+                    // console.log(val)
                     var fileName = val.name;
                     var songName = val.title;
-                    console.log(val);
-                    var ext = fileName.substr(fileName.lastIndexOf('.') + 1); //check file type - looks at everything after '.'
+                    var track = val.track;
+                    // check file type - looks at everything after '.'
+                    var ext = fileName.substr(fileName.lastIndexOf('.') + 1);
                     if ((ext === 'ogg' || ext === 'mp3') && songName != undefined) {
-                        setList.push({ songTitle: songName, songFile: fileName, deeOne: baseUrl, directory: dir, songSource1: 'http://' + baseUrl + dir + '/' + fileName });
+                        setList.push({ songTitle: songName, track: track, songFile: fileName, deeOne: baseUrl, directory: dir, songSource1: 'http://' + baseUrl + dir + '/' + fileName });
+                        // sort playlist
+                        setList.sort(function (a, b) {
+                            if (a.track > b.track) {
+                                return 1;
+                            }
+                            if (a.track < b.track) {
+                                return -1;
+                            }
+                            return 0;
+                        });
                     }
                 });
                 console.log(setList);
+                return setList;
             });
         };
     }
