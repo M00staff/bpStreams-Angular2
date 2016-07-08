@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-// import { ShowList } from '../showList/showList.component';
+var showPick_component_1 = require('../showPick/showPick.component');
 var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
 var ShowsComponent = (function () {
@@ -18,6 +18,7 @@ var ShowsComponent = (function () {
     function ShowsComponent(showsService) {
         var _this = this;
         this.showsService = showsService;
+        // @Input() set = this.setList
         this.pickYear = function (year, row) {
             // run service with arguments
             _this.showsService.pickYear2(year, row)
@@ -26,7 +27,7 @@ var ShowsComponent = (function () {
                 _this.shows = res.json();
                 // grabs and attaches filtered data correct
                 _this.showList = _this.shows.response.docs;
-                // console.log(this.showList)
+                console.log(_this.showList);
             });
         };
         this.pickShow = function (id) {
@@ -40,7 +41,10 @@ var ShowsComponent = (function () {
                 var baseUrl = _this.show.d1;
                 var dir = _this.show.dir;
                 // iterate through the array of objects and grab the file names and song titles
-                _this.showFiles.forEach(function (val) {
+                // Typescript iterator
+                for (var _i = 0, _a = _this.showFiles; _i < _a.length; _i++) {
+                    var val = _a[_i];
+                    // this.showFiles.forEach((val) => {
                     // console.log(val)
                     var fileName = val.name;
                     var songName = val.title;
@@ -60,7 +64,8 @@ var ShowsComponent = (function () {
                             return 0;
                         });
                     }
-                });
+                }
+                // )
                 console.log(setList);
                 // bind top public setlist with one just made
                 _this.setList = setList;
@@ -69,10 +74,12 @@ var ShowsComponent = (function () {
         };
         this.pickSong = function (title, file, d1, dir, songList, index) {
             var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
-            _this.songSource = songSrc;
-            var inputElement = document.getElementsByClassName('player-song-title');
-            inputElement.value = songSrc.title;
-            var inputElement2 = document.getElementsByClassName('player');
+            console.log(songSrc);
+            // this.songSource = songSrc;
+            // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
+            // inputElement.value = songSrc.title;
+            //
+            // const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
             // inputElement2.attr('src', songList[index].songSource1)
         };
     }
@@ -81,6 +88,8 @@ var ShowsComponent = (function () {
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
+            directives: [showPick_component_1.ShowPick],
+            inputs: ['setList']
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);

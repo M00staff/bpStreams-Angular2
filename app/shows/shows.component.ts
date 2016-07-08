@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Response, JSONP_PROVIDERS  } from '@angular/http';
-// import { ShowList } from '../showList/showList.component';
+import { ShowPick } from '../showPick/showPick.component';
 import { ShowsService } from '../shows.service';
 // import 'rxjs/Rx';
 
@@ -8,7 +8,8 @@ import { ShowsService } from '../shows.service';
   selector: 'pick-shows',
   templateUrl: 'app/shows/shows.html',
   providers: [JSONP_PROVIDERS, ShowsService],
-  // directives: [ShowList]
+  directives: [ShowPick],
+  inputs: ['setList']
 })
 
 export class ShowsComponent {
@@ -16,6 +17,7 @@ export class ShowsComponent {
   // need this in the constructor to run service
   constructor (private showsService: ShowsService) { }
 
+  // private means variable cannot be accessed outside of class
   public shows;
   public showList;
   public show;
@@ -23,6 +25,7 @@ export class ShowsComponent {
   public setList;
   public songSource;
 
+  // @Input() set = this.setList
 
   pickYear = (year, row) => {
     // run service with arguments
@@ -33,7 +36,7 @@ export class ShowsComponent {
       this.shows = res.json();
       // grabs and attaches filtered data correct
       this.showList = this.shows.response.docs
-      // console.log(this.showList)
+      console.log(this.showList)
     })
   }
 
@@ -51,7 +54,9 @@ export class ShowsComponent {
       const dir = this.show.dir
 
       // iterate through the array of objects and grab the file names and song titles
-      this.showFiles.forEach((val) => {
+      // Typescript iterator
+      for (let val of this.showFiles) {
+      // this.showFiles.forEach((val) => {
         // console.log(val)
         const fileName = val.name;
         const songName = val.title;
@@ -74,7 +79,8 @@ export class ShowsComponent {
              })
 
           }
-      })
+      }
+    // )
       console.log(setList)
       // bind top public setlist with one just made
       this.setList = setList;
@@ -85,11 +91,13 @@ export class ShowsComponent {
 
   pickSong = ( title, file, d1, dir, songList, index ) => {
     const songSrc = {title: title, source: 'http://' + d1 + dir + '/' + file};
-    this.songSource = songSrc;
-    const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
-    inputElement.value = songSrc.title;
+    console.log(songSrc)
 
-    const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
+    // this.songSource = songSrc;
+    // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
+    // inputElement.value = songSrc.title;
+    //
+    // const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
 
     // inputElement2.attr('src', songList[index].songSource1)
   }

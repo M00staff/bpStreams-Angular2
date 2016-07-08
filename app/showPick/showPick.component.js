@@ -9,17 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var shows_service_1 = require('../shows.service');
 var ShowPick = (function () {
-    function ShowPick() {
+    function ShowPick(showsService) {
+        this.showsService = showsService;
+        console.log(this.setList);
     }
     ShowPick = __decorate([
         core_1.Component({
             selector: 'show-pick',
-            template: "\n\n    <span><br />(setlist)</span>\n\n    "
+            // providers: [ShowsService],
+            // properties: ['setList'],
+            template: "\n\n    <div class=\"allSongs\" *ngFor=\"let set of setList\">\n\n      <div>{{ set.songTitle }}</div>\n\n    </div>\n\n    "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowPick);
     return ShowPick;
 }());
 exports.ShowPick = ShowPick;
+// (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, track )">
 //# sourceMappingURL=showPick.component.js.map

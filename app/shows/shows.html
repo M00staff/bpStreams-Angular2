@@ -22,6 +22,8 @@
 
     {{show.title}}
 
+    <!-- <show-pick> </show-pick> -->
+
       <div class="allSongs" *ngFor="let set of setList">
 
         <div (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, track )">{{ set.songTitle }}</div>
