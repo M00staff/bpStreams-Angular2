@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var showPick_component_1 = require('../showPick/showPick.component');
+// import { ShowPick } from '../showPick/showPick.component';
 var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
 var ShowsComponent = (function () {
@@ -88,7 +88,7 @@ var ShowsComponent = (function () {
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
-            directives: [showPick_component_1.ShowPick],
+            // directives: [ShowPick],
             inputs: ['setList']
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])

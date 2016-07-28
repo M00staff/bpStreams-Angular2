@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Response, JSONP_PROVIDERS  } from '@angular/http';
-import { ShowPick } from '../showPick/showPick.component';
+// import { ShowPick } from '../showPick/showPick.component';
 import { ShowsService } from '../shows.service';
 // import 'rxjs/Rx';
 
@@ -8,7 +8,7 @@ import { ShowsService } from '../shows.service';
   selector: 'pick-shows',
   templateUrl: 'app/shows/shows.html',
   providers: [JSONP_PROVIDERS, ShowsService],
-  directives: [ShowPick],
+  // directives: [ShowPick],
   inputs: ['setList']
 })
 
@@ -18,10 +18,10 @@ export class ShowsComponent {
   constructor (private showsService: ShowsService) { }
 
   // private means variable cannot be accessed outside of class
-  public shows;
-  public showList;
-  public show;
-  public showFiles;
+  public shows: any;
+  public showList: Array<Object>;
+  public show: any;
+  public showFiles: any;
   public setList;
   public songSource;
 
