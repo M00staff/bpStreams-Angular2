@@ -22,8 +22,8 @@ export class ShowsComponent {
   public showList: Array<Object>;
   public show: any;
   public showFiles: any;
-  public setList;
-  public songSource;
+  public setList: Array<Object>;
+  public songSource: Object;
 
   // @Input() set = this.setList
 
