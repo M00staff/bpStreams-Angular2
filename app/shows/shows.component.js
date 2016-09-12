@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-// import { ShowPick } from '../showPick/showPick.component';
+var songs_component_1 = require('../songs/songs.component');
 var shows_service_1 = require('../shows.service');
 // import 'rxjs/Rx';
 var ShowsComponent = (function () {
@@ -30,12 +30,15 @@ var ShowsComponent = (function () {
                 console.log(_this.showList);
             });
         };
-        this.pickShow = function (id) {
+        this.pickShow = function (id, title) {
             _this.showsService.pickShow2(id)
                 .subscribe(function (res) {
                 _this.show = res.json();
                 // console.log(this.show)
                 _this.showFiles = _this.show.files;
+                _this.title = _this.show.metadata.title;
+                // this.isSBD = this.show.metadata.subject
+                // console.log(this.isSBD)
                 // baseUrl and dir are a level above name and title in the ng2 version of object
                 var setList = [];
                 var baseUrl = _this.show.d1;
@@ -88,8 +91,7 @@ var ShowsComponent = (function () {
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
             providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
-            // directives: [ShowPick],
-            inputs: ['setList']
+            directives: [songs_component_1.SongsComponent]
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);

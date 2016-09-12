@@ -2,43 +2,65 @@
 
   <div class="yearButtons">
     <p>Select Year</p>
-    <button (click)="pickYear(2001, 15)">2001</button>
-    <button (click)="pickYear(2002, 26)">2002</button>
-    <button (click)="pickYear(2003, 84)">2003</button>
-    <button (click)="pickYear(2004, 96)">2004</button>
-    <button (click)="pickYear(2005, 131)">2005</button>
-    <button (click)="pickYear(2006, 84)">2006</button>
-    <button (click)="pickYear(2007, 25)">2007</button>
-    <button (click)="pickYear(2008, 4)">2008</button>
-    <button (click)="pickYear(2009, 17)">2009</button>
-    <button (click)="pickYear(2010, 20)">2010</button>
-    <button (click)="pickYear(2011, 34)">2011</button>
-    <button (click)="pickYear(2012, 14)">2012</button>
-    <button (click)="pickYear(2013, 1)">2013</button>
+      <a href="#/">
+      <button (click)="pickYear(2001, 15)">2001</button>
+      <button (click)="pickYear(2002, 26)">2002</button>
+      <button (click)="pickYear(2003, 84)">2003</button>
+      <button (click)="pickYear(2004, 96)">2004</button>
+      <button (click)="pickYear(2005, 131)">2005</button>
+      <button (click)="pickYear(2006, 84)">2006</button>
+      <button (click)="pickYear(2007, 25)">2007</button>
+      <button (click)="pickYear(2008, 4)">2008</button>
+      <button (click)="pickYear(2009, 17)">2009</button>
+      <button (click)="pickYear(2010, 20)">2010</button>
+      <button (click)="pickYear(2011, 34)">2011</button>
+      <button (click)="pickYear(2012, 14)">2012</button>
+      <button (click)="pickYear(2013, 1)">2013</button>
+    </a>
   </div>
 
-
-  <div (click)="pickShow( show.identifier )" class="allShows" *ngFor="let show of showList">
-
-    {{show.title}}
-
-    <!-- <show-pick> </show-pick> -->
-
-      <div class="allSongs" *ngFor="let set of setList">
-
-        <div (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, track )">{{ set.songTitle }}</div>
-
-      </div>
-
+<!-- <div class="allShowsContainer"> -->
+<div class="allSongsContainer">
+  <span class="showHeading" id="//"> {{ title }} </span>
+  <div class="allSongs" *ngFor="let set of setList" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, track )">
+    {{ set.songTitle }}
   </div>
+</div>
+
+    <a class="allShows" id="/" href="#//" (click)="pickShow( show.identifier, show.title )" *ngFor="let show of showList">
+      <!-- <a class="allShows" > -->
+        {{show.title}}
+      <!-- </a> -->
+    </a>
+
+<!-- </div> -->
+
+
+    <!-- <pick-songs>  </pick-songs> -->
+    <!-- <hero-detail *ngFor="let hero of heroes" [hero]="hero"></hero-detail> -->
+
+
+    <!-- <pick-songs> </pick-songs> -->
+
+
+
+
 
 
 
   <!-- <show-list [showList2]='shows'></show-list> -->
 
+
 </div>
 
-<!-- <footer>
-  <span class="player-song-title">{{ songSource.title }}</span>
-  <audio autoplay controls class="player" [src]="songSource.source"></audio>
-</footer> -->
+  <!-- <div class="allSongsContainer"> -->
+  <!-- </div> -->
+
+
+<footer>
+
+
+  <span class="player-song-title"><!-- {{ songSource.title }} --></span>
+  <audio autoplay controls class="player"> <!-- [src]="songSource.source">  --> </audio>
+
+</footer>

@@ -56,6 +56,12 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+  position: relative;
+}
+
 .allShows {
   border: solid 2px grey;
   background-color: aliceblue;
@@ -73,17 +79,36 @@ ul {
   transition: 0.5s ease-out;
 }
 
+.allSongsContainer {
+  border: solid 2px grey;
+  background-color: aliceblue;
+  display: block;
+  margin: 1em;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 1em;
+  transition: 0.5s ease-out;
+}
+
 .allSongs {
   transition: 0.5s ease-out;
   border-radius: 20px;
   font-family: "Comic Sans MS", cursive, sans-serif;
-
+  cursor: pointer;
+  /*position: fixed;*/
+  /*left: 0;*/
+  /*bottom: 0;*/
 }
 
 .allSongs:hover {
   display: block;
-  background-color: aliceblue;
+  background-color: #CBDAE6;
   transition: 0.5s ease-out;
+}
+
+.showHeading {
+  font-size: 1.6rem;
+  font-style: underline;
 }
 
 .yearButtons {
@@ -136,13 +161,13 @@ button:hover {
 .column-11 { width: 91.66%; }
 .column-12 { width: 100%; }
 
-#footNote {
+.footNote {
   font-family: "Arial Black", Gadget, sans-serif;  font-size: 15px;
   padding: 10px;
   margin-bottom: 3em;
 }
 
-#footNote a {
+.footNote a {
   color: black;
   font-weight: bold;
   text-decoration: none;
