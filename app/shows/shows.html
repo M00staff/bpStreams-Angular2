@@ -22,7 +22,7 @@
 <!-- <div class="allShowsContainer"> -->
 <div class="allSongsContainer">
   <span class="showHeading" id="//"> {{ title }} </span>
-  <div class="allSongs" *ngFor="let set of setList" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, track )">
+  <div class="allSongs" *ngFor="let set of setList" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, set.track )">
     {{ set.songTitle }}
   </div>
 </div>

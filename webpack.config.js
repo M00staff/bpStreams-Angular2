@@ -4,6 +4,8 @@ const path = require('path');
 const merge = require('webpack-merge');
 const TARGET = process.env.npm_lifecycle_event;
 
+// const $ = require('jquery');
+
 const PATHS = {
   js: path.join(__dirname, 'js'),
   build: path.join(__dirname, 'build'),

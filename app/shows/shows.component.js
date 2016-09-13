@@ -12,7 +12,6 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var songs_component_1 = require('../songs/songs.component');
 var shows_service_1 = require('../shows.service');
-// import 'rxjs/Rx';
 var ShowsComponent = (function () {
     // need this in the constructor to run service
     function ShowsComponent(showsService) {
@@ -75,13 +74,30 @@ var ShowsComponent = (function () {
                 // return this.setList
             });
         };
-        this.pickSong = function (title, file, d1, dir, songList, index) {
-            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
+        this.pickSong = function (title, file, d1, dir, songList, track) {
+            var songSrc = { title: title, track: track, source: 'http://' + d1 + dir + '/' + file };
             console.log(songSrc);
+            $('.player-song-title').html(songSrc.title); //actual changing of audio source
+            $('.player').attr('src', songSrc.source);
+            //
+            //                                         //=========== event listener for next song
+            //           var audio = $('audio');
+            //           var songCount = index;
+            //           var len = songList.length - 1;
+            //           audio[0].addEventListener('ended', function(e){
+            //           songCount++;
+            //         if(songCount >= len){
+            //             $('.player-song-title').html(songList[0].songTitle);
+            //             $('.player').attr('src', songList[0].songSource1);
+            //         } else{
+            //           $('.player-song-title').html(songList[songCount].songTitle);
+            //           $('.player').attr('src', songList[songCount].songSource1);
+            //         }
+            //     });
+            // document.getElementsByClassName('.player').attr
             // this.songSource = songSrc;
             // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
             // inputElement.value = songSrc.title;
-            //
             // const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
             // inputElement2.attr('src', songList[index].songSource1)
         };

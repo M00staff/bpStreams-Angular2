@@ -3,6 +3,7 @@ import { Response, JSONP_PROVIDERS  } from '@angular/http';
 import { SongsComponent } from '../songs/songs.component';
 import { ShowsService } from '../shows.service';
 // import 'rxjs/Rx';
+declare const $:any;
 
 @Component({
   selector: 'pick-shows',
@@ -98,14 +99,39 @@ export class ShowsComponent {
     }
 
 
-  pickSong = ( title, file, d1, dir, songList, index ) => {
-    const songSrc = {title: title, source: 'http://' + d1 + dir + '/' + file};
+  pickSong = ( title, file, d1, dir, songList, track ) => {
+    const songSrc:any = {title: title, track: track, source: 'http://' + d1 + dir + '/' + file};
     console.log(songSrc)
+
+
+    $('.player-song-title').html(songSrc.title);          //actual changing of audio source
+              $('.player').attr('src', songSrc.source);
+    //
+    //                                         //=========== event listener for next song
+    //           var audio = $('audio');
+    //           var songCount = index;
+    //           var len = songList.length - 1;
+    //           audio[0].addEventListener('ended', function(e){
+    //           songCount++;
+    //         if(songCount >= len){
+    //             $('.player-song-title').html(songList[0].songTitle);
+    //             $('.player').attr('src', songList[0].songSource1);
+    //         } else{
+    //           $('.player-song-title').html(songList[songCount].songTitle);
+    //           $('.player').attr('src', songList[songCount].songSource1);
+    //         }
+    //     });
+
+
+
+
+
+    // document.getElementsByClassName('.player').attr
 
     // this.songSource = songSrc;
     // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
     // inputElement.value = songSrc.title;
-    //
+
     // const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
 
     // inputElement2.attr('src', songList[index].songSource1)
