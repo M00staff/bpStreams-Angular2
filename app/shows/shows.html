@@ -22,7 +22,7 @@
 <!-- <div class="allShowsContainer"> -->
 <div class="allSongsContainer">
   <span class="showHeading" id="//"> {{ title }} </span>
-  <div class="allSongs" *ngFor="let set of setList" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, set.track )">
+  <div class="allSongs" *ngFor="let set of setList" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )">
     {{ set.songTitle }}
   </div>
 </div>
@@ -61,6 +61,6 @@
 
 
   <span class="player-song-title"><!-- {{ songSource.title }} --></span>
-  <audio autoplay controls class="player"> <!-- [src]="songSource.source">  --> </audio>
+  <audio controls autoplay="true" class="player" preload="auto"> <!-- [src]="songSource.source">  --> </audio>
 
 </footer>

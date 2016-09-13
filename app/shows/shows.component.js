@@ -57,10 +57,10 @@ var ShowsComponent = (function () {
                         setList.push({ songTitle: songName, track: track, songFile: fileName, deeOne: baseUrl, directory: dir, songSource1: 'http://' + baseUrl + dir + '/' + fileName });
                         // sort playlist
                         setList.sort(function (a, b) {
-                            if (a.track > b.track) {
+                            if (a.songFile > b.songFile) {
                                 return 1;
                             }
-                            if (a.track < b.track) {
+                            if (a.songFile < b.songFile) {
                                 return -1;
                             }
                             return 0;
@@ -74,26 +74,26 @@ var ShowsComponent = (function () {
                 // return this.setList
             });
         };
-        this.pickSong = function (title, file, d1, dir, songList, track) {
-            var songSrc = { title: title, track: track, source: 'http://' + d1 + dir + '/' + file };
-            console.log(songSrc);
+        this.pickSong = function (title, file, d1, dir, songList, index) {
+            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
+            console.log(index);
             $('.player-song-title').html(songSrc.title); //actual changing of audio source
             $('.player').attr('src', songSrc.source);
-            //
-            //                                         //=========== event listener for next song
-            //           var audio = $('audio');
-            //           var songCount = index;
-            //           var len = songList.length - 1;
-            //           audio[0].addEventListener('ended', function(e){
-            //           songCount++;
-            //         if(songCount >= len){
-            //             $('.player-song-title').html(songList[0].songTitle);
-            //             $('.player').attr('src', songList[0].songSource1);
-            //         } else{
-            //           $('.player-song-title').html(songList[songCount].songTitle);
-            //           $('.player').attr('src', songList[songCount].songSource1);
-            //         }
-            //     });
+            //=========== event listener for next song
+            var audio = $('audio');
+            var songCount = index;
+            var len = songList.length - 1;
+            audio[0].addEventListener('ended', function (e) {
+                songCount++;
+                if (songCount >= len) {
+                    $('.player-song-title').html(songList[0].songTitle);
+                    $('.player').attr('src', songList[0].source);
+                }
+                else {
+                    $('.player-song-title').html(songList[songCount].songTitle);
+                    $('.player').attr('src', songList[songCount].source);
+                }
+            });
             // document.getElementsByClassName('.player').attr
             // this.songSource = songSrc;
             // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
