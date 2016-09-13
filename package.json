@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "engines": {
   "node": "4.1.2"
-}
+},
   "scripts": {
     "start": "tsc && concurrently \"npm run tsc:w\" \"webpack-dev-server\" ",
     "lite": "lite-server",
