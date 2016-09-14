@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Response, JSONP_PROVIDERS  } from '@angular/http';
+import { Response  } from '@angular/http';
 import { SongsComponent } from '../songs/songs.component';
 import { ShowsService } from '../shows.service';
 // import 'rxjs/Rx';
@@ -8,8 +8,8 @@ declare const $:any;
 @Component({
   selector: 'pick-shows',
   templateUrl: 'app/shows/shows.html',
-  providers: [JSONP_PROVIDERS, ShowsService],
-  directives: [SongsComponent]
+  providers: [ShowsService]
+  // directives: [SongsComponent]
   // inputs: ['setList']
 })
 

@@ -9,8 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var http_1 = require('@angular/http');
-var songs_component_1 = require('../songs/songs.component');
 var shows_service_1 = require('../shows.service');
 var ShowsComponent = (function () {
     // need this in the constructor to run service
@@ -106,8 +104,7 @@ var ShowsComponent = (function () {
         core_1.Component({
             selector: 'pick-shows',
             templateUrl: 'app/shows/shows.html',
-            providers: [http_1.JSONP_PROVIDERS, shows_service_1.ShowsService],
-            directives: [songs_component_1.SongsComponent]
+            providers: [shows_service_1.ShowsService]
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);

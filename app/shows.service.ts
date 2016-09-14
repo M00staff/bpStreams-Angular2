@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { JSONP_PROVIDERS, Jsonp, Response } from '@angular/http';
+import { Jsonp, Response } from '@angular/http';
 
 
 @Injectable()
