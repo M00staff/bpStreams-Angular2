@@ -2,7 +2,7 @@ node_modules
 npm-debug.log
 app/*.js
 app/*.js.map
-app/shows*.js
-app/shows*.js.map
-app/songs*.js
-app/songs*.js.map
+app/shows/*.js
+app/shows/*.js.map
+app/songs/*.js
+app/songs/*.js.map

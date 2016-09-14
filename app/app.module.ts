@@ -7,17 +7,22 @@ import { ShowsComponent } from './shows/shows.component';
 import { ShowsService } from './shows.service';
 
 @NgModule({
+
   imports:      [
     BrowserModule,
     JsonpModule
   ],
+
   declarations: [
     AppComponent,
     ShowsComponent
   ],
+
   providers: [
     ShowsService,
   ],
+
   bootstrap:    [ AppComponent ]
+
 })
 export class AppModule { }
