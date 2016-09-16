@@ -15,7 +15,7 @@ const PATHS = {
 const common = {
     entry: "./entry.js",
     output: {
-        path: __dirname,
+        path: './server/public',
         filename: "bundle.js"
     },
     resolve: {

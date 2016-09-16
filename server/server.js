@@ -3,6 +3,8 @@
 // modules =================================================
 var express        = require('express');
 var app            = express();
+var path = require('path');
+
 // var bodyParser     = require('body-parser');
 
 // configuration ===========================================
@@ -24,9 +26,12 @@ var port = process.env.PORT || 8080;
 // parse application/vnd.api+json as json
 // app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
+app.use(express.static(path.join(__dirname, 'public')));
+// console.log(path.join(__dirname, 'public'));
 
 // routes ==================================================
-require('./routes')(app); // configure our routes
+// require('./routes')(app); // configure our routes
+app.use('/', require('./routes') );
 
 // start app ===============================================
 // startup our app at http://localhost:8080
