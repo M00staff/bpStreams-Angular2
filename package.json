@@ -5,7 +5,7 @@
     "node": "6.5.0"
   },
   "scripts": {
-    "start": " webpack && tsc && nodemon server/server.js ",
+    "start": "node server/server.js",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
