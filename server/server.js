@@ -12,7 +12,7 @@ var path = require('path');
 // var db = require('./config/db');
 
 // set port
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 80;
 
 // connect to database
 // (uncomment after you enter in your own credentials in config/db.js)
