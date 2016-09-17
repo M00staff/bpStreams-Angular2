@@ -7,10 +7,56 @@ declare const $:any;
 
 @Component({
   selector: 'pick-shows',
-  templateUrl: 'app/shows/shows.html',
-  providers: [ShowsService]
+  providers: [ShowsService],
+  // directives depreceated, its now declarations in main module
   // directives: [SongsComponent]
-  // inputs: ['setList']
+  template:
+  `
+
+
+  <div class="column column-12">
+    <div class="yearButtons">
+      <p>Select Year</p>
+        <a href="#/">
+        <button (click)="pickYear(2001, 15)">2001</button>
+        <button (click)="pickYear(2002, 26)">2002</button>
+        <button (click)="pickYear(2003, 84)">2003</button>
+        <button (click)="pickYear(2004, 96)">2004</button>
+        <button (click)="pickYear(2005, 131)">2005</button>
+        <button (click)="pickYear(2006, 84)">2006</button>
+        <button (click)="pickYear(2007, 25)">2007</button>
+        <button (click)="pickYear(2008, 4)">2008</button>
+        <button (click)="pickYear(2009, 17)">2009</button>
+        <button (click)="pickYear(2010, 20)">2010</button>
+        <button (click)="pickYear(2011, 34)">2011</button>
+        <button (click)="pickYear(2012, 14)">2012</button>
+        <button (click)="pickYear(2013, 1)">2013</button>
+      </a>
+    </div>
+
+  <!-- <div class="allShowsContainer"> -->
+  <div class="allSongsContainer">
+    <span class="showHeading" id="//"> {{ title }} </span>
+    <div class="allSongs" *ngFor="let set of setList" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )">
+      {{ set.songTitle }}
+    </div>
+  </div>
+
+      <a class="allShows" id="/" href="#//" (click)="pickShow( show.identifier, show.title )" *ngFor="let show of showList">
+          {{show.title}}
+      </a>
+
+
+  </div>
+
+
+  <footer>
+    <span class="player-song-title"><!-- {{ songSource.title }} --></span>
+    <audio controls autoplay="true" class="player" preload="auto"> <!-- [src]="songSource.source">  --> </audio>
+  </footer>
+
+
+  `
 })
 
 export class ShowsComponent {
@@ -34,7 +80,7 @@ export class ShowsComponent {
       this.shows = res.json();
       // grabs and attaches filtered data correct
       this.showList = this.shows.response.docs
-      console.log(this.showList)
+      // console.log(this.showList)
 
     })
 
@@ -91,7 +137,7 @@ export class ShowsComponent {
             }
         }
       // )
-        console.log(setList)
+        // console.log(setList)
         // bind top public setlist with one just made
         this.setList = setList;
         // return this.setList
@@ -101,7 +147,7 @@ export class ShowsComponent {
 
   pickSong = ( title, file, d1, dir, songList, index ) => {
     const songSrc:any = {title: title, source: 'http://' + d1 + dir + '/' + file};
-    console.log(index)
+    // console.log(index)
 
 
               $('.player-song-title').html(songSrc.title);          //actual changing of audio source
@@ -123,19 +169,6 @@ export class ShowsComponent {
             }
         });
 
-
-
-
-
-    // document.getElementsByClassName('.player').attr
-
-    // this.songSource = songSrc;
-    // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
-    // inputElement.value = songSrc.title;
-
-    // const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
-
-    // inputElement2.attr('src', songList[index].songSource1)
   }
 
 

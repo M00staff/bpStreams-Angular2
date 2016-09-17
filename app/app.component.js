@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/app.view.html'
+            template: "\n\n  <div class=\"column column-12\">\n    <ul>\n      <li>\n        <img src=\"http://mnmpresents.com/wp-content/uploads/2010/07/bpLogo.jpg\">\n      </li>\n    </ul>\n  </div>\n\n\n  <pick-shows></pick-shows>\n\n  <div class=\"column column-12 footnote\">\n  <a href=\"mailto:MostafaSHabib@gmail.com\">Questions and Site Issues can be sent to MostafaSHabib@gmail.com</a>\n  </div>\n\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

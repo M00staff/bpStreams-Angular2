@@ -24,7 +24,7 @@ var ShowsComponent = (function () {
                 _this.shows = res.json();
                 // grabs and attaches filtered data correct
                 _this.showList = _this.shows.response.docs;
-                console.log(_this.showList);
+                // console.log(this.showList)
             });
         };
         this.pickShow = function (id, title) {
@@ -66,7 +66,7 @@ var ShowsComponent = (function () {
                     }
                 }
                 // )
-                console.log(setList);
+                // console.log(setList)
                 // bind top public setlist with one just made
                 _this.setList = setList;
                 // return this.setList
@@ -74,7 +74,7 @@ var ShowsComponent = (function () {
         };
         this.pickSong = function (title, file, d1, dir, songList, index) {
             var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
-            console.log(index);
+            // console.log(index)
             $('.player-song-title').html(songSrc.title); //actual changing of audio source
             $('.player').attr('src', songSrc.source);
             //=========== event listener for next song
@@ -92,19 +92,15 @@ var ShowsComponent = (function () {
                     $('.player').attr('src', songList[songCount].source);
                 }
             });
-            // document.getElementsByClassName('.player').attr
-            // this.songSource = songSrc;
-            // const inputElement = (<HTMLTextAreaElement><any>document.getElementsByClassName('player-song-title'));
-            // inputElement.value = songSrc.title;
-            // const inputElement2 = <HTMLAudioElement><any>document.getElementsByClassName('player')
-            // inputElement2.attr('src', songList[index].songSource1)
         };
     }
     ShowsComponent = __decorate([
         core_1.Component({
             selector: 'pick-shows',
-            templateUrl: 'app/shows/shows.html',
-            providers: [shows_service_1.ShowsService]
+            providers: [shows_service_1.ShowsService],
+            // directives depreceated, its now declarations in main module
+            // directives: [SongsComponent]
+            template: "\n\n\n  <div class=\"column column-12\">\n    <div class=\"yearButtons\">\n      <p>Select Year</p>\n        <a href=\"#/\">\n        <button (click)=\"pickYear(2001, 15)\">2001</button>\n        <button (click)=\"pickYear(2002, 26)\">2002</button>\n        <button (click)=\"pickYear(2003, 84)\">2003</button>\n        <button (click)=\"pickYear(2004, 96)\">2004</button>\n        <button (click)=\"pickYear(2005, 131)\">2005</button>\n        <button (click)=\"pickYear(2006, 84)\">2006</button>\n        <button (click)=\"pickYear(2007, 25)\">2007</button>\n        <button (click)=\"pickYear(2008, 4)\">2008</button>\n        <button (click)=\"pickYear(2009, 17)\">2009</button>\n        <button (click)=\"pickYear(2010, 20)\">2010</button>\n        <button (click)=\"pickYear(2011, 34)\">2011</button>\n        <button (click)=\"pickYear(2012, 14)\">2012</button>\n        <button (click)=\"pickYear(2013, 1)\">2013</button>\n      </a>\n    </div>\n\n  <!-- <div class=\"allShowsContainer\"> -->\n  <div class=\"allSongsContainer\">\n    <span class=\"showHeading\" id=\"//\"> {{ title }} </span>\n    <div class=\"allSongs\" *ngFor=\"let set of setList\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n      {{ set.songTitle }}\n    </div>\n  </div>\n\n      <a class=\"allShows\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\" *ngFor=\"let show of showList\">\n          {{show.title}}\n      </a>\n\n\n  </div>\n\n\n  <footer>\n    <span class=\"player-song-title\"><!-- {{ songSource.title }} --></span>\n    <audio controls autoplay=\"true\" class=\"player\" preload=\"auto\"> <!-- [src]=\"songSource.source\">  --> </audio>\n  </footer>\n\n\n  "
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);
