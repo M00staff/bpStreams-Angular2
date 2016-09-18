@@ -8,13 +8,13 @@ var path = require('path');
 
 // configuration ===========================================
 
-// config files
+// link to database connection if ever need
 // var db = require('./config/db');
 
 // set port
 var port = process.env.PORT || 8080;
 
-// connect to database
+// connect to database if ever need
 // (uncomment after you enter in your own credentials in config/db.js)
 // mongoose.connect(db.url);
 
@@ -31,11 +31,7 @@ var port = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, '../')));
 
 
-// routes ==================================================
-// require('./routes')(app); // configure our routes
-
-
-// ---------- phantom code, links to routes file?
+// ---------- links to routes file
 app.use('/', require('./routes'));
 
 
@@ -43,7 +39,7 @@ app.use('/', require('./routes'));
 // startup our app at http://localhost:8080
 app.listen(port);
 
-// shoutout to the user
+// log port
 console.log('listening on port ' + port);
 
 // expose app
