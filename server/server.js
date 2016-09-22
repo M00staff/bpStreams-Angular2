@@ -3,7 +3,7 @@
 // modules =================================================
 var express        = require('express');
 var app            = express();
-var path = require('path');
+var path           = require('path');
 // var bodyParser     = require('body-parser');
 
 // configuration ===========================================
@@ -31,8 +31,11 @@ var port = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, '../')));
 
 
-// ---------- links to routes file
-app.use('/', require('./routes'));
+// frontend routes =========================================================
+// route to handle all angular requests
+app.get('*', function(req, res) {
+    res.sendFile('index.html', { root: './'}); // load our public/index.html file
+});
 
 
 // start app ===============================================
