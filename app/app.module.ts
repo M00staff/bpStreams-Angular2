@@ -4,6 +4,7 @@ import { JsonpModule }    from '@angular/http';
 
 import { AppComponent }   from './app.component';
 import { ShowsComponent } from './shows/shows.component';
+import { SongsComponent } from './songs/songs.component';
 import { ShowsService } from './shows.service';
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ShowsService } from './shows.service';
 
   declarations: [
     AppComponent,
-    ShowsComponent
+    ShowsComponent,
+    SongsComponent
   ],
 
   providers: [

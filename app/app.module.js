@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var shows_component_1 = require('./shows/shows.component');
+var songs_component_1 = require('./songs/songs.component');
 var shows_service_1 = require('./shows.service');
 var AppModule = (function () {
     function AppModule() {
@@ -25,7 +26,8 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                shows_component_1.ShowsComponent
+                shows_component_1.ShowsComponent,
+                songs_component_1.SongsComponent
             ],
             providers: [
                 shows_service_1.ShowsService,

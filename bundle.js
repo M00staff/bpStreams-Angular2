@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "61c6ef399b6e0cfce78b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "20fe5f8ba17ba40e6d3e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -595,7 +595,7 @@
 
 	var _shows = __webpack_require__(27);
 
-	__webpack_require__(29);
+	__webpack_require__(30);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7328,12 +7328,13 @@
 	var http_1 = __webpack_require__(25);
 	var app_component_1 = __webpack_require__(26);
 	var shows_component_1 = __webpack_require__(27);
+	var songs_component_1 = __webpack_require__(29);
 	var shows_service_1 = __webpack_require__(28);
 	var AppModule = function () {
 	    function AppModule() {}
 	    AppModule = __decorate([core_1.NgModule({
 	        imports: [platform_browser_1.BrowserModule, http_1.JsonpModule],
-	        declarations: [app_component_1.AppComponent, shows_component_1.ShowsComponent],
+	        declarations: [app_component_1.AppComponent, shows_component_1.ShowsComponent, songs_component_1.SongsComponent],
 	        providers: [shows_service_1.ShowsService],
 	        bootstrap: [app_component_1.AppComponent]
 	    }), __metadata('design:paramtypes', [])], AppModule);
@@ -9719,6 +9720,7 @@
 	};
 	var core_1 = __webpack_require__(4);
 	var shows_service_1 = __webpack_require__(28);
+	// import 'rxjs/Rx';
 	var ShowsComponent = function () {
 	    // need this in the constructor to run service
 	    function ShowsComponent(showsService) {
@@ -9779,33 +9781,13 @@
 	                // return this.setList
 	            });
 	        };
-	        this.pickSong = function (title, file, d1, dir, songList, index) {
-	            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
-	            // console.log(index)
-	            $('.player-song-title').html(songSrc.title); //actual changing of audio source
-	            $('.player').attr('src', songSrc.source);
-	            //=========== event listener for next song
-	            var audio = $('audio');
-	            var songCount = index;
-	            var len = songList.length - 1;
-	            audio[0].addEventListener('ended', function (e) {
-	                songCount++;
-	                if (songCount >= len) {
-	                    $('.player-song-title').html(songList[0].songTitle);
-	                    $('.player').attr('src', songList[0].source);
-	                } else {
-	                    $('.player-song-title').html(songList[songCount].songTitle);
-	                    $('.player').attr('src', songList[songCount].source);
-	                }
-	            });
-	        };
 	    }
 	    ShowsComponent = __decorate([core_1.Component({
 	        selector: 'pick-shows',
 	        providers: [shows_service_1.ShowsService],
 	        // directives depreceated, its now declarations in main module
 	        // directives: [SongsComponent]
-	        template: "\n\n\n  <div class=\"column column-12\">\n    <div class=\"yearButtons\">\n      <p>Select Year</p>\n        <a href=\"#/\">\n        <button (click)=\"pickYear(2001, 15)\">2001</button>\n        <button (click)=\"pickYear(2002, 26)\">2002</button>\n        <button (click)=\"pickYear(2003, 84)\">2003</button>\n        <button (click)=\"pickYear(2004, 96)\">2004</button>\n        <button (click)=\"pickYear(2005, 131)\">2005</button>\n        <button (click)=\"pickYear(2006, 84)\">2006</button>\n        <button (click)=\"pickYear(2007, 25)\">2007</button>\n        <button (click)=\"pickYear(2008, 4)\">2008</button>\n        <button (click)=\"pickYear(2009, 17)\">2009</button>\n        <button (click)=\"pickYear(2010, 20)\">2010</button>\n        <button (click)=\"pickYear(2011, 34)\">2011</button>\n        <button (click)=\"pickYear(2012, 14)\">2012</button>\n        <button (click)=\"pickYear(2013, 1)\">2013</button>\n      </a>\n    </div>\n\n  <!-- <div class=\"allShowsContainer\"> -->\n  <div class=\"allSongsContainer\">\n    <span class=\"showHeading\" id=\"//\"> {{ title }} </span>\n    <div class=\"allSongs\" *ngFor=\"let set of setList\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n      {{ set.songTitle }}\n    </div>\n  </div>\n\n      <a class=\"allShows\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\" *ngFor=\"let show of showList\">\n          {{show.title}}\n      </a>\n\n\n  </div>\n\n\n  <footer>\n    <span class=\"player-song-title\"><!-- {{ songSource.title }} --></span>\n    <audio controls autoplay=\"true\" class=\"player\" preload=\"auto\"> <!-- [src]=\"songSource.source\">  --> </audio>\n  </footer>\n\n\n  "
+	        template: "\n\n\n  <div class=\"column column-12\">\n    <div class=\"yearButtons\">\n      <p>Select Year</p>\n        <a href=\"#/\">\n        <button (click)=\"pickYear(2001, 15)\">2001</button>\n        <button (click)=\"pickYear(2002, 26)\">2002</button>\n        <button (click)=\"pickYear(2003, 84)\">2003</button>\n        <button (click)=\"pickYear(2004, 96)\">2004</button>\n        <button (click)=\"pickYear(2005, 131)\">2005</button>\n        <button (click)=\"pickYear(2006, 84)\">2006</button>\n        <button (click)=\"pickYear(2007, 25)\">2007</button>\n        <button (click)=\"pickYear(2008, 4)\">2008</button>\n        <button (click)=\"pickYear(2009, 17)\">2009</button>\n        <button (click)=\"pickYear(2010, 20)\">2010</button>\n        <button (click)=\"pickYear(2011, 34)\">2011</button>\n        <button (click)=\"pickYear(2012, 14)\">2012</button>\n        <button (click)=\"pickYear(2013, 1)\">2013</button>\n      </a>\n    </div>\n\n<div class=\"allSongsContainer\">\n  <pick-songs\n    *ngFor=\"let set of setList\"\n    [set]=\"set\"\n    [setList]=\"setList\">\n  </pick-songs>\n</div>\n\n\n      <a class=\"allShows\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\" *ngFor=\"let show of showList\">\n          {{show.title}}\n      </a>\n\n\n  </div>\n\n\n  <footer>\n    <span class=\"player-song-title\"><!-- {{ songSource.title }} --></span>\n    <audio controls autoplay=\"true\" class=\"player\" preload=\"auto\"> <!-- [src]=\"songSource.source\">  --> </audio>\n  </footer>\n\n\n  "
 	    }), __metadata('design:paramtypes', [shows_service_1.ShowsService])], ShowsComponent);
 	    return ShowsComponent;
 	}();
@@ -9854,20 +9836,76 @@
 /* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	var __decorate = undefined && undefined.__decorate || function (decorators, target, key, desc) {
+	    var c = arguments.length,
+	        r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
+	        d;
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) {
+	        if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    }return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	var __metadata = undefined && undefined.__metadata || function (k, v) {
+	    if ((typeof Reflect === "undefined" ? "undefined" : _typeof(Reflect)) === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+	};
+	var core_1 = __webpack_require__(4);
+	var SongsComponent = function () {
+	    function SongsComponent() {
+	        this.pickSong = function (title, file, d1, dir, songList, index) {
+	            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
+	            console.log(index);
+	            $('.player-song-title').html(songSrc.title); //actual changing of audio source
+	            $('.player').attr('src', songSrc.source);
+	            //=========== event listener for next song
+	            var audio = $('audio');
+	            var songCount = index;
+	            var len = songList.length - 1;
+	            audio[0].addEventListener('ended', function (e) {
+	                songCount++;
+	                if (songCount >= len) {
+	                    $('.player-song-title').html(songList[0].songTitle);
+	                    $('.player').attr('src', songList[0].source);
+	                } else {
+	                    $('.player-song-title').html(songList[songCount].songTitle);
+	                    $('.player').attr('src', songList[songCount].source);
+	                }
+	            });
+	        };
+	    }
+	    ;
+	    __decorate([core_1.Input(), __metadata('design:type', Set)], SongsComponent.prototype, "set", void 0);
+	    __decorate([core_1.Input(), __metadata('design:type', Object)], SongsComponent.prototype, "setList", void 0);
+	    SongsComponent = __decorate([core_1.Component({
+	        selector: 'pick-songs',
+	        template: "\n\n    <span class=\"showHeading\" id=\"//\"> {{ title }} </span>\n    <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n      {{ set.songTitle }}\n    </div>\n\n  "
+	    }), __metadata('design:paramtypes', [])], SongsComponent);
+	    return SongsComponent;
+	}();
+	exports.SongsComponent = SongsComponent;
+	;
+	//# sourceMappingURL=songs.component.js.map
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(30);
+	var content = __webpack_require__(31);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(32)(content, {});
+	var update = __webpack_require__(33)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(30, function() {
-				var newContent = __webpack_require__(30);
+			module.hot.accept(31, function() {
+				var newContent = __webpack_require__(31);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9877,10 +9915,10 @@
 	}
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(31)();
+	exports = module.exports = __webpack_require__(32)();
 	// imports
 
 
@@ -9891,7 +9929,7 @@
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9946,7 +9984,7 @@
 	};
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var shows_service_1 = require('../shows.service');
+// import 'rxjs/Rx';
 var ShowsComponent = (function () {
     // need this in the constructor to run service
     function ShowsComponent(showsService) {
@@ -72,27 +73,6 @@ var ShowsComponent = (function () {
                 // return this.setList
             });
         };
-        this.pickSong = function (title, file, d1, dir, songList, index) {
-            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
-            // console.log(index)
-            $('.player-song-title').html(songSrc.title); //actual changing of audio source
-            $('.player').attr('src', songSrc.source);
-            //=========== event listener for next song
-            var audio = $('audio');
-            var songCount = index;
-            var len = songList.length - 1;
-            audio[0].addEventListener('ended', function (e) {
-                songCount++;
-                if (songCount >= len) {
-                    $('.player-song-title').html(songList[0].songTitle);
-                    $('.player').attr('src', songList[0].source);
-                }
-                else {
-                    $('.player-song-title').html(songList[songCount].songTitle);
-                    $('.player').attr('src', songList[songCount].source);
-                }
-            });
-        };
     }
     ShowsComponent = __decorate([
         core_1.Component({
@@ -100,7 +80,7 @@ var ShowsComponent = (function () {
             providers: [shows_service_1.ShowsService],
             // directives depreceated, its now declarations in main module
             // directives: [SongsComponent]
-            template: "\n\n\n  <div class=\"column column-12\">\n    <div class=\"yearButtons\">\n      <p>Select Year</p>\n        <a href=\"#/\">\n        <button (click)=\"pickYear(2001, 15)\">2001</button>\n        <button (click)=\"pickYear(2002, 26)\">2002</button>\n        <button (click)=\"pickYear(2003, 84)\">2003</button>\n        <button (click)=\"pickYear(2004, 96)\">2004</button>\n        <button (click)=\"pickYear(2005, 131)\">2005</button>\n        <button (click)=\"pickYear(2006, 84)\">2006</button>\n        <button (click)=\"pickYear(2007, 25)\">2007</button>\n        <button (click)=\"pickYear(2008, 4)\">2008</button>\n        <button (click)=\"pickYear(2009, 17)\">2009</button>\n        <button (click)=\"pickYear(2010, 20)\">2010</button>\n        <button (click)=\"pickYear(2011, 34)\">2011</button>\n        <button (click)=\"pickYear(2012, 14)\">2012</button>\n        <button (click)=\"pickYear(2013, 1)\">2013</button>\n      </a>\n    </div>\n\n  <!-- <div class=\"allShowsContainer\"> -->\n  <div class=\"allSongsContainer\">\n    <span class=\"showHeading\" id=\"//\"> {{ title }} </span>\n    <div class=\"allSongs\" *ngFor=\"let set of setList\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n      {{ set.songTitle }}\n    </div>\n  </div>\n\n      <a class=\"allShows\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\" *ngFor=\"let show of showList\">\n          {{show.title}}\n      </a>\n\n\n  </div>\n\n\n  <footer>\n    <span class=\"player-song-title\"><!-- {{ songSource.title }} --></span>\n    <audio controls autoplay=\"true\" class=\"player\" preload=\"auto\"> <!-- [src]=\"songSource.source\">  --> </audio>\n  </footer>\n\n\n  "
+            template: "\n\n\n  <div class=\"column column-12\">\n    <div class=\"yearButtons\">\n      <p>Select Year</p>\n        <a href=\"#/\">\n        <button (click)=\"pickYear(2001, 15)\">2001</button>\n        <button (click)=\"pickYear(2002, 26)\">2002</button>\n        <button (click)=\"pickYear(2003, 84)\">2003</button>\n        <button (click)=\"pickYear(2004, 96)\">2004</button>\n        <button (click)=\"pickYear(2005, 131)\">2005</button>\n        <button (click)=\"pickYear(2006, 84)\">2006</button>\n        <button (click)=\"pickYear(2007, 25)\">2007</button>\n        <button (click)=\"pickYear(2008, 4)\">2008</button>\n        <button (click)=\"pickYear(2009, 17)\">2009</button>\n        <button (click)=\"pickYear(2010, 20)\">2010</button>\n        <button (click)=\"pickYear(2011, 34)\">2011</button>\n        <button (click)=\"pickYear(2012, 14)\">2012</button>\n        <button (click)=\"pickYear(2013, 1)\">2013</button>\n      </a>\n    </div>\n\n<div class=\"allSongsContainer\">\n  <pick-songs\n    *ngFor=\"let set of setList\"\n    [set]=\"set\"\n    [setList]=\"setList\">\n  </pick-songs>\n</div>\n\n\n      <a class=\"allShows\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\" *ngFor=\"let show of showList\">\n          {{show.title}}\n      </a>\n\n\n  </div>\n\n\n  <footer>\n    <span class=\"player-song-title\"><!-- {{ songSource.title }} --></span>\n    <audio controls autoplay=\"true\" class=\"player\" preload=\"auto\"> <!-- [src]=\"songSource.source\">  --> </audio>\n  </footer>\n\n\n  "
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);
