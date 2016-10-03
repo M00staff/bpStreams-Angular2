@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var SongsComponent = (function () {
     function SongsComponent() {
+        // @Input() show;
         this.pickSong = function (title, file, d1, dir, songList, index) {
             var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
             // console.log(index)
@@ -45,7 +46,7 @@ var SongsComponent = (function () {
     SongsComponent = __decorate([
         core_1.Component({
             selector: 'pick-songs',
-            template: "\n\n  <span class=\"showHeading\"> {{ title }} </span>\n  <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n    {{ set.songTitle }}\n  </div>\n\n  "
+            template: "\n\n  <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n    {{ set.songTitle }}\n  </div>\n\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], SongsComponent);

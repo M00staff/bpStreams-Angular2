@@ -72,7 +72,7 @@ var ShowsComponent = (function () {
         core_1.Component({
             selector: 'pick-shows',
             providers: [shows_service_1.ShowsService],
-            template: "\n\n  <a class=\"allShows\" *ngFor=\"let show of showList\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\">\n      {{show.title}}\n  </a>\n\n  <div class=\"allSongsContainer\" id=\"//\">\n    <pick-songs\n      *ngFor=\"let set of setList\"\n      [set]=\"set\"\n      [setList]=\"setList\">\n    </pick-songs>\n  </div>\n  "
+            template: "\n  <div class=\"allSongsContainer\" id=\"//\">\n  <span class=\"showHeading\"> {{ title }} </span>\n  <pick-songs\n  *ngFor=\"let set of setList\"\n  [set]=\"set\"\n  [setList]=\"setList\">\n  </pick-songs>\n  </div>\n\n  <a class=\"allShows\" *ngFor=\"let show of showList\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\">\n      {{show.title}}\n  </a>\n\n  "
         }), 
         __metadata('design:paramtypes', [shows_service_1.ShowsService])
     ], ShowsComponent);

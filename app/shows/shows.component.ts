@@ -9,18 +9,19 @@ import { ShowsService } from '../shows.service';
   template:
 
   `
+  <div class="allSongsContainer" id="//">
+  <span class="showHeading"> {{ title }} </span>
+  <pick-songs
+  *ngFor="let set of setList"
+  [set]="set"
+  [setList]="setList">
+  </pick-songs>
+  </div>
 
   <a class="allShows" *ngFor="let show of showList" id="/" href="#//" (click)="pickShow( show.identifier, show.title )">
       {{show.title}}
   </a>
 
-  <div class="allSongsContainer" id="//">
-    <pick-songs
-      *ngFor="let set of setList"
-      [set]="set"
-      [setList]="setList">
-    </pick-songs>
-  </div>
   `
 })
 

@@ -10,7 +10,6 @@ declare const $:any;
 
   `
 
-  <span class="showHeading"> {{ title }} </span>
   <div class="allSongs" (click)="pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )">
     {{ set.songTitle }}
   </div>
@@ -24,6 +23,7 @@ export class SongsComponent {
 
   @Input() set;
   @Input() setList;
+  // @Input() show;
 
   pickSong = ( title, file, d1, dir, songList, index ) => {
     const songSrc:any = {title: title, source: 'http://' + d1 + dir + '/' + file};

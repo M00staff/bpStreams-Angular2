@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7957ff84a53fe86cd0c5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8498b57ffcc5c790d053"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -38400,7 +38400,7 @@
 	    ShowsComponent = __decorate([core_1.Component({
 	        selector: 'pick-shows',
 	        providers: [shows_service_1.ShowsService],
-	        template: "\n\n  <a class=\"allShows\" *ngFor=\"let show of showList\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\">\n      {{show.title}}\n  </a>\n\n  <div class=\"allSongsContainer\" id=\"//\">\n    <pick-songs\n      *ngFor=\"let set of setList\"\n      [set]=\"set\"\n      [setList]=\"setList\">\n    </pick-songs>\n  </div>\n  "
+	        template: "\n  <div class=\"allSongsContainer\" id=\"//\">\n  <span class=\"showHeading\"> {{ title }} </span>\n  <pick-songs\n  *ngFor=\"let set of setList\"\n  [set]=\"set\"\n  [setList]=\"setList\">\n  </pick-songs>\n  </div>\n\n  <a class=\"allShows\" *ngFor=\"let show of showList\" id=\"/\" href=\"#//\" (click)=\"pickShow( show.identifier, show.title )\">\n      {{show.title}}\n  </a>\n\n  "
 	    }), __metadata('design:paramtypes', [shows_service_1.ShowsService])], ShowsComponent);
 	    return ShowsComponent;
 	}();
@@ -38429,6 +38429,7 @@
 	var core_1 = __webpack_require__(4);
 	var SongsComponent = function () {
 	    function SongsComponent() {
+	        // @Input() show;
 	        this.pickSong = function (title, file, d1, dir, songList, index) {
 	            var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
 	            // console.log(index)
@@ -38455,7 +38456,7 @@
 	    __decorate([core_1.Input(), __metadata('design:type', Object)], SongsComponent.prototype, "setList", void 0);
 	    SongsComponent = __decorate([core_1.Component({
 	        selector: 'pick-songs',
-	        template: "\n\n  <span class=\"showHeading\"> {{ title }} </span>\n  <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n    {{ set.songTitle }}\n  </div>\n\n  "
+	        template: "\n\n  <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n    {{ set.songTitle }}\n  </div>\n\n  "
 	    }), __metadata('design:paramtypes', [])], SongsComponent);
 	    return SongsComponent;
 	}();
