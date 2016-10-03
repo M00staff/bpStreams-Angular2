@@ -13,7 +13,7 @@ var SongsComponent = (function () {
     function SongsComponent() {
         this.pickSong = function (title, file, d1, dir, songList, index) {
             var songSrc = { title: title, source: 'http://' + d1 + dir + '/' + file };
-            console.log(index);
+            // console.log(index)
             $('.player-song-title').html(songSrc.title); //actual changing of audio source
             $('.player').attr('src', songSrc.source);
             //=========== event listener for next song
@@ -36,7 +36,7 @@ var SongsComponent = (function () {
     ;
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', Set)
+        __metadata('design:type', Object)
     ], SongsComponent.prototype, "set", void 0);
     __decorate([
         core_1.Input(), 
@@ -45,7 +45,7 @@ var SongsComponent = (function () {
     SongsComponent = __decorate([
         core_1.Component({
             selector: 'pick-songs',
-            template: "\n\n    <span class=\"showHeading\" id=\"//\"> {{ title }} </span>\n    <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n      {{ set.songTitle }}\n    </div>\n\n  "
+            template: "\n\n  <span class=\"showHeading\"> {{ title }} </span>\n  <div class=\"allSongs\" (click)=\"pickSong( set.songTitle, set.songFile, set.deeOne, set.directory, setList, setList.indexOf(set) )\">\n    {{ set.songTitle }}\n  </div>\n\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], SongsComponent);

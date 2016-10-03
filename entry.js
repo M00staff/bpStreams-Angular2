@@ -1,7 +1,7 @@
 import './app/main';
 import angular from './node_modules/@angular/core';
 import { AppComponent } from './app/app.component';
-import { ShowsComponent } from './app/shows/shows.component';
+import { yearComponent } from './app/year/year.component';
 import './style.css';
 // unecessary?
 // import $ from 'jquery';

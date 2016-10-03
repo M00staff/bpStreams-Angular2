@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { JsonpModule }    from '@angular/http';
 
 import { AppComponent }   from './app.component';
+import { YearComponent } from './year/year.component';
 import { ShowsComponent } from './shows/shows.component';
 import { SongsComponent } from './songs/songs.component';
 import { ShowsService } from './shows.service';
@@ -16,6 +17,7 @@ import { ShowsService } from './shows.service';
 
   declarations: [
     AppComponent,
+    YearComponent,
     ShowsComponent,
     SongsComponent
   ],

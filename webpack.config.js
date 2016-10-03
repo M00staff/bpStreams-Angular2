@@ -25,7 +25,7 @@ const common = {
         loaders: [
             { test: /\.css$/, loaders: ['style', 'css'], include: PATHS.css },
             { test: /\.ts/, loaders: ['ts-loader'], exclude: /node_modules/ },
-            { test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: PATHS.node_modules },
+            { test: /\.js$/, loader: 'babel?presets[]=es2015', exclude: /node_modules/ },
         ]
     }
 };

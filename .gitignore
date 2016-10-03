@@ -3,3 +3,4 @@ npm-debug.log
 app/*.js.map
 app/shows/*.js.map
 app/songs/*.js.map
+app/year/*.js.map
