@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Response  } from '@angular/http';
-import { YearComponent } from '../year/year.component';
-import { ShowsService } from '../shows.service';
+import { YearComponent } from '../year.component';
+import { ShowsService } from '../../shows.service';
 
 @Component({
   selector: 'pick-shows',

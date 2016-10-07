@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Response  } from '@angular/http';
-import { SongsComponent } from '../songs/songs.component';
 import { ShowsService } from '../shows.service';
-// import 'rxjs/Rx';
 
 @Component({
   selector: 'pick-year',

@@ -4,8 +4,8 @@ import { JsonpModule }    from '@angular/http';
 
 import { AppComponent }   from './app.component';
 import { YearComponent } from './year/year.component';
-import { ShowsComponent } from './shows/shows.component';
-import { SongsComponent } from './songs/songs.component';
+import { ShowsComponent } from './year/shows/shows.component';
+import { SongsComponent } from './year/shows/songs/songs.component';
 import { ShowsService } from './shows.service';
 
 @NgModule({

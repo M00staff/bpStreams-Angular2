@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var shows_service_1 = require('../shows.service');
-// import 'rxjs/Rx';
 var YearComponent = (function () {
     // need this in the constructor to run service
     function YearComponent(showsService) {

@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8498b57ffcc5c790d053"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0f58fe07e48baab4cd0c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -38256,7 +38256,6 @@
 	};
 	var core_1 = __webpack_require__(4);
 	var shows_service_1 = __webpack_require__(28);
-	// import 'rxjs/Rx';
 	var YearComponent = function () {
 	    // need this in the constructor to run service
 	    function YearComponent(showsService) {

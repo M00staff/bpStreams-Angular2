@@ -13,8 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var year_component_1 = require('./year/year.component');
-var shows_component_1 = require('./shows/shows.component');
-var songs_component_1 = require('./songs/songs.component');
+var shows_component_1 = require('./year/shows/shows.component');
+var songs_component_1 = require('./year/shows/songs/songs.component');
 var shows_service_1 = require('./shows.service');
 var AppModule = (function () {
     function AppModule() {

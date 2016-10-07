@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Response  } from '@angular/http';
-import { ShowsComponent } from '../Shows/shows.component';
-import { ShowsService } from '../shows.service';
+import { ShowsComponent } from '../shows.component';
+import { ShowsService } from '../../../shows.service';
 declare const $:any;
 
 @Component({
